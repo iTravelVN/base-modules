@@ -1,3 +1,4 @@
 {
-    "module_name": "Name"
+    "module_name": "Name",
+    "module_description": "Your module description"
 }

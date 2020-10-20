@@ -1,8 +1,10 @@
 """
 {{cookiecutter.module_name.title()}} Module
 
+{{cookiecutter.module_description}}
+
 Expose API and Business logic to manage and access {{cookiecutter.module_name.title()}}
-resource. MUST be used in `base-fastapi` project template.
+resource. SHOULD be used with `base-fastapi` project template.
 
 Details: https://github.com/tienhm0202/base-fastapi/
 """
