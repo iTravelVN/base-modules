@@ -4,7 +4,6 @@
 Can be use as Request Model and Response Model. MUST follow pydantic specific
 and reflect SQLAlchemy ORM
 """
-from pydantic import BaseModel, validator
 from pydantic_sqlalchemy import sqlalchemy_to_pydantic
 
 from .models.orm import {{cookiecutter.module_name.title()}}
