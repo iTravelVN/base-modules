@@ -11,5 +11,5 @@ from zogapp.db.base_class import Base
 from zogapp.utils import get_secret
 
 
-class Component(Base):
+class {{cookiecutter.module_name.title()}}(Base):
     __tablename__ = "{{cookiecutter.module_name}}s"
