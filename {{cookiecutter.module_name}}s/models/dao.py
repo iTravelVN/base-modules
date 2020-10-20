@@ -12,5 +12,4 @@ class CRUDComponent(CRUDBase[{{cookiecutter.module_name.title()}}, {{cookiecutte
     pass
 
 
-
 {{cookiecutter.module_name}} = CRUD{{cookiecutter.module_name.title()}}({{cookiecutter.module_name.title()}})
