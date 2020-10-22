@@ -8,7 +8,7 @@ from .orm import {{cookiecutter.module_name.title()}}
 from ..schemas import {{cookiecutter.module_name.title()}}Create, {{cookiecutter.module_name.title()}}Update
 
 
-class CRUDComponent(CRUDBase[{{cookiecutter.module_name.title()}}, {{cookiecutter.module_name.title()}}Create, {{cookiecutter.module_name.title()}}Update]):
+class CRUD{{cookiecutter.module_name.title()}}(CRUDBase[{{cookiecutter.module_name.title()}}, {{cookiecutter.module_name.title()}}Create, {{cookiecutter.module_name.title()}}Update]):
     pass
 
 
