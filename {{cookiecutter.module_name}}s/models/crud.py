@@ -3,7 +3,7 @@
 
 All CRUD function should be place in here.
 """
-from zogapp.db.base_class import CRUDBase
+from src.db.base_class import CRUDBase
 from .orm import {{cookiecutter.module_name.title()}}
 from ..schemas import {{cookiecutter.module_name.title()}}Create, {{cookiecutter.module_name.title()}}Update
 

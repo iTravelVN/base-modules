@@ -7,8 +7,8 @@ database. This is ORM following SQLAlchemy policy. All ORM MUST extends
 """
 from sqlalchemy import Column, String
 
-from zogapp.db.base_class import Base
-from zogapp.utils import get_secret
+from src.db.base_class import Base
+from src.utils import get_secret
 
 
 class {{cookiecutter.module_name.title()}}(Base):
