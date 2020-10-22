@@ -3,7 +3,7 @@
 
 Use to generate and maintain database migration. Reflect table structure in
 database. This is ORM following SQLAlchemy policy. All ORM MUST extends
-`zogapp.db.base_class.Base`.
+`src.db.base_class.Base`.
 """
 from sqlalchemy import Column, String
 
