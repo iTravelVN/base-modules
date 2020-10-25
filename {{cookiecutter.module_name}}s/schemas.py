@@ -6,7 +6,7 @@ and reflect SQLAlchemy ORM
 """
 from pydantic_sqlalchemy import sqlalchemy_to_pydantic
 
-from .orm import {{cookiecutter.module_name.title()}}
+from . import orm
 
-{{cookiecutter.module_name.title()}}Create = sqlalchemy_to_pydantic({{cookiecutter.module_name.title()}})
-{{cookiecutter.module_name.title()}}Update = sqlalchemy_to_pydantic({{cookiecutter.module_name.title()}})
+{{cookiecutter.module_name.title()}}Create = sqlalchemy_to_pydantic(orm.{{cookiecutter.module_name.title()}})
+{{cookiecutter.module_name.title()}}Update = sqlalchemy_to_pydantic(orm.{{cookiecutter.module_name.title()}})
