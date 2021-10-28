@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Define all {{cookiecutter.module_name.title()}} exception.
+Define all {{cookiecutter.module_name_plural.title()}} exception.
 
 Exception SHOULD HAVE detail in dict with both english and vietnamese. We did
 this app for people, so keep it simple to show message error.

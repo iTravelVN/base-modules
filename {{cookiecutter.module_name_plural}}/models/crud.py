@@ -1,5 +1,5 @@
 """
-{{cookiecutter.module_name.title()}} data access object
+{{cookiecutter.module_name_singular.title()}} data access object
 
 All CRUD function should be place in here.
 """
