@@ -34,22 +34,22 @@ class {{cookiecutter.module_name_singular.title()}}Controller:
         """
         return crud.{{cookiecutter.module_name_singular}}.get_multi(self.db, skip=offset, limit=limit)
 
-    @router.get("/{id}")
+    @router.get("/{item_id}")
     def get_{{cookiecutter.module_name_singular}}(self, item_id: str):
         """
         Get one {{cookiecutter.module_name_singular}} by its ID
         """
         return crud.{{cookiecutter.module_name_singular}}.get(self.db, id=item_id)
-    
+
     @router.post("/")
     def create_{{cookiecutter.module_name_singular}}(self, item: schemas.{{cookiecutter.module_name_singular.title()}}Create):
         """
         Create one new {{cookiecutter.module_name_singular}}
         """
         return crud.{{cookiecutter.module_name_singular}}.create(self.db, obj_in=item)
-    
+
     @router.patch("/{item_id}")
-    def update_{{cookiecutter.module_name_singular}}(self, item_id:str, item: schemas.{{cookiecutter.module_name_singular.title()}}Update):
+    def update_{{cookiecutter.module_name_singular}}(self, item_id: str, item: schemas.{{cookiecutter.module_name_singular.title()}}Update):
         """
         Update {{cookiecutter.module_name_singular}} by its ID
         """
@@ -58,7 +58,7 @@ class {{cookiecutter.module_name_singular.title()}}Controller:
             raise HTTPException(status_code=404, detail="Item not found")
         return crud.{{cookiecutter.module_name_singular}}.update(
             self.db, db_obj=current_item, obj_in=item)
-    
+
     @router.delete("/{item_id}")
     def delete_{{cookiecutter.module_name_singular}}(self, item_id: str):
         """
