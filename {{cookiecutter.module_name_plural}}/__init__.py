@@ -1,14 +1,5 @@
-"""
-{{cookiecutter.module_name_plural.title()}} Module
+from .api import {{cookiecutter.module_name_plural}}
 
-{{cookiecutter.module_description}}
-
-Expose API and Business logic to manage and access {{cookiecutter.module_name_plural.title()}}
-resource. SHOULD be used with `base-fastapi` project template.
-
-Details: https://github.com/tienhm0202/base-fastapi/
-"""
-from .business import controllers  # noqa: F401
-
-API_PREFIX = "/{{cookiecutter.module_name_plural}}"
-API_TAGS = ["{{cookiecutter.module_name_plural}}"]
+routers = [
+    {"router": {{cookiecutter.module_name_plural}}.router, "prefix": "/{{cookiecutter.module_name_plural}}", "tags": ["{{cookiecutter.module_name_plural}}"]},
+]
