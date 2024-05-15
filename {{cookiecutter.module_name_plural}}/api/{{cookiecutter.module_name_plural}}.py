@@ -32,7 +32,7 @@ async def new(
 
 
 @router.get(
-    "/{{cookiecutter.module_name_singular}}/{{{cookiecutter.module_name_singular}}_id}",
+    "/{{cookiecutter.module_name_singular}}/\{{{cookiecutter.module_name_singular}}_id}",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
     description="Get {{cookiecutter.module_name_singular}} information",
     status_code=status.HTTP_200_OK,
@@ -48,7 +48,7 @@ async def get_one(
 
 
 @router.patch(
-    "/{{cookiecutter.module_name_singular}}/{{{cookiecutter.module_name_singular}}_id}",
+    "/{{cookiecutter.module_name_singular}}/\{{{cookiecutter.module_name_singular}}_id}",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
     description="Update {{cookiecutter.module_name_singular}} information",
     status_code=status.HTTP_202_ACCEPTED,
