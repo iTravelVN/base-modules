@@ -13,7 +13,7 @@ router = APIRouter()
 @router.post(
     "/{{cookiecutter.module_name_singular}}",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
-    description="Create new {{cookiecutter.module_name_singular}}",
+    description="Create",
     status_code=status.HTTP_201_CREATED,
 )
 async def new(
@@ -34,7 +34,7 @@ async def new(
 @router.get(
     "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id {{'}'}}",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
-    description="Get {{cookiecutter.module_name_singular}} information",
+    description="Get one",
     status_code=status.HTTP_200_OK,
 )
 async def get_one(
@@ -50,7 +50,7 @@ async def get_one(
 @router.patch(
     "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id {{'}'}}",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
-    description="Update {{cookiecutter.module_name_singular}} information",
+    description="Update",
     status_code=status.HTTP_202_ACCEPTED,
 )
 async def update(
