@@ -29,7 +29,7 @@ async def new(
 
 
 @router.get(
-    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id {{'}'}}",
+    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id{{'}'}}",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
     description="Get one",
     status_code=status.HTTP_200_OK,
@@ -45,7 +45,7 @@ async def get_one(
 
 
 @router.patch(
-    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id {{'}'}}",
+    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id{{'}'}}",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
     description="Update",
     status_code=status.HTTP_202_ACCEPTED,
@@ -55,7 +55,7 @@ async def update(
     update_data: {{cookiecutter.module_name_singular.title()}}Update,
     session: AsyncSession = Depends(deps.get_session),
 ) -> {{cookiecutter.module_name_singular.title()}}:
-    _ = await db.get_by_id(session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id)  # check if existed
+    await db.get_by_id(session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id)  # check if existed
     updated = await db.update(
         session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id, update_data.model_dump(exclude_unset=True)
     )
@@ -65,7 +65,7 @@ async def update(
 
 
 @router.put(
-    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id {{'}'}}/suspend",
+    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id{{'}'}}/suspend",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
     description = "Suspend",
     status_code = status.HTTP_202_ACCEPTED,
@@ -75,7 +75,7 @@ async def suspend(
     session: AsyncSession = Depends(deps.get_session),
     current_user=Depends(users_deps.get_current_user),
 ) -> {{cookiecutter.module_name_singular.title()}}:
-    _ = await db.get_by_id(session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id)  # check if existed
+    await db.get_by_id(session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id)  # check if existed
     updated = await db.update(
         session,
         {{cookiecutter.module_name_singular.title()}},
@@ -88,7 +88,7 @@ async def suspend(
     return updated[0]
 
 @router.put(
-    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id {{'}'}}/unsuspend",
+    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id{{'}'}}/unsuspend",
     response_model={{cookiecutter.module_name_singular.title()}}Response,
     description = "Unsuspend",
     status_code = status.HTTP_202_ACCEPTED,
@@ -98,7 +98,7 @@ async def unsuspend(
     session: AsyncSession = Depends(deps.get_session),
     current_user=Depends(users_deps.get_current_user),
 ) -> {{cookiecutter.module_name_singular.title()}}:
-    _ = await db.get_by_id(session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id)  # check if existed
+    await db.get_by_id(session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id)  # check if existed
     updated = await db.update(
         session,
         {{cookiecutter.module_name_singular.title()}},
