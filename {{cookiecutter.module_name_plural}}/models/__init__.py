@@ -19,4 +19,5 @@ from app.core.orm.base import AsyncBase
 
 class {{cookiecutter.module_name_singular.title()}}(AsyncBase):
     __tablename__ = "{{cookiecutter.module_name_singular}}"
+
     name: Mapped[str] = mapped_column(String(255))
