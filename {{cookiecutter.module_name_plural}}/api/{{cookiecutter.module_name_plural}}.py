@@ -21,12 +21,9 @@ async def new(
     session: AsyncSession = Depends(deps.get_session),
 ) -> {{cookiecutter.module_name_singular.title()}}:
     {{cookiecutter.module_name_singular}} = {{cookiecutter.module_name_singular.title()}}(
-        user_id=create_data.user_id,
-        address=create_data.address,
-        brand=create_data.brand,
+        name=create_data.name,
     )
     await db.create(session, {{cookiecutter.module_name_singular}})
-    await {{cookiecutter.module_name_singular}}.awaitable_attrs.user
 
     return {{cookiecutter.module_name_singular}}
 
@@ -65,3 +62,50 @@ async def update(
     await updated.awaitable_attrs.user
 
     return updated
+
+
+@router.put(
+    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id {{'}'}}/suspend",
+    response_model={{cookiecutter.module_name_singular.title()}}Response,
+    description = "Suspend",
+    status_code = status.HTTP_202_ACCEPTED,
+)
+async def suspend(
+    {{cookiecutter.module_name_singular}}_id: str,
+    session: AsyncSession = Depends(deps.get_session),
+    current_user=Depends(users_deps.get_current_user),
+) -> {{cookiecutter.module_name_singular.title()}}:
+    _ = await db.get_by_id(session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id)  # check if existed
+    updated = await db.update(
+        session,
+        {{cookiecutter.module_name_singular.title()}},
+        [{{cookiecutter.module_name_singular.title()}}.user_id == current_user.user_id, {{cookiecutter.module_name_singular.title()}}.id == {{cookiecutter.module_name_singular}}_id],
+        {"suspended": 1},
+    )
+    if len(updated) > 1:
+        raise ValueError(vars(updated))
+
+    return updated[0]
+
+@router.put(
+    "/{{cookiecutter.module_name_singular}}/{{'{'}}{{cookiecutter.module_name_singular}}_id {{'}'}}/unsuspend",
+    response_model={{cookiecutter.module_name_singular.title()}}Response,
+    description = "Unsuspend",
+    status_code = status.HTTP_202_ACCEPTED,
+)
+async def unsuspend(
+    {{cookiecutter.module_name_singular}}_id: str,
+    session: AsyncSession = Depends(deps.get_session),
+    current_user=Depends(users_deps.get_current_user),
+) -> {{cookiecutter.module_name_singular.title()}}:
+    _ = await db.get_by_id(session, {{cookiecutter.module_name_singular.title()}}, {{cookiecutter.module_name_singular}}_id)  # check if existed
+    updated = await db.update(
+        session,
+        {{cookiecutter.module_name_singular.title()}},
+        [{{cookiecutter.module_name_singular.title()}}.user_id == current_user.user_id, {{cookiecutter.module_name_singular.title()}}.id == {{cookiecutter.module_name_singular}}_id],
+        {"suspended": 0},
+    )
+    if len(updated) > 1:
+        raise ValueError(vars(updated))
+
+    return updated[0]
